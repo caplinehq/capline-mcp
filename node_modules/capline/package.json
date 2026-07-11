@@ -1,0 +1,65 @@
+{
+  "name": "capline",
+  "version": "0.1.0",
+  "description": "Cross-chain spend authority for AI agents. Enforce a signed AP2 mandate — per-tx cap, global cross-chain cap, expiry, payee allowlist — on Solana, Avalanche, and Base. The cap isn't in the prompt; it's a contract the LLM can't talk to.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Capline",
+  "homepage": "https://capline-protocol.vercel.app",
+  "repository": { "type": "git", "url": "https://github.com/agnij-dutta/capline" },
+  "keywords": [
+    "ai-agents",
+    "x402",
+    "ap2",
+    "agent-payments",
+    "solana",
+    "avalanche",
+    "base",
+    "cross-chain",
+    "spending-limits",
+    "web3"
+  ],
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./coordinator": { "types": "./dist/coordinator.d.ts", "default": "./dist/coordinator.js" },
+    "./evm": { "types": "./dist/evm/index.d.ts", "default": "./dist/evm/index.js" },
+    "./solana": { "types": "./dist/solana/index.d.ts", "default": "./dist/solana/index.js" }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@noble/hashes": "1.5.0"
+  },
+  "peerDependencies": {
+    "@coral-xyz/anchor": "^0.31.0",
+    "@solana/spl-token": "^0.4.0",
+    "@solana/web3.js": "^1.95.0",
+    "viem": "^2.0.0",
+    "x402": "^1.2.0"
+  },
+  "peerDependenciesMeta": {
+    "viem": { "optional": true },
+    "x402": { "optional": true },
+    "@coral-xyz/anchor": { "optional": true },
+    "@solana/web3.js": { "optional": true },
+    "@solana/spl-token": { "optional": true }
+  },
+  "devDependencies": {
+    "@coral-xyz/anchor": "^0.31.0",
+    "@solana/spl-token": "^0.4.9",
+    "@solana/web3.js": "^1.98.0",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "viem": "^2.21.0",
+    "x402": "^1.2.0"
+  },
+  "engines": { "node": ">=18" }
+}
